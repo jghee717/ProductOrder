@@ -1,6 +1,5 @@
 package jpabook.jpashop.domain;
 
-import jpabook.jpashop.Member;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;

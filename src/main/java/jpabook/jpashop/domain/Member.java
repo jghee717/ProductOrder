@@ -1,4 +1,4 @@
-package jpabook.jpashop;
+package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Order;
