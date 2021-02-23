@@ -15,9 +15,11 @@ public class ItemService {
     public void saveItem(Item item) {
         itemRepository.save(item);
     }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
+
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
     }
