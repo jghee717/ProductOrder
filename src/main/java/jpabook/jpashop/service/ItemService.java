@@ -12,9 +12,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemService {
     private final ItemRepository itemRepository;
+
     @Transactional
     public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+    @Transactional
+    public void updateItem(Long id, String name, int price) {
+        Item item = itemRepository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
     }
 
     @Transactional
