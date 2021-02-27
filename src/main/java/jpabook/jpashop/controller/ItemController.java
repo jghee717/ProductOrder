@@ -29,7 +29,7 @@ public class ItemController {
         return "redirect:/items";
     }
 
-    //상품목록록
+    //상품목록
    @GetMapping(value = "/items")
     public String list(Model model) {
         List<Item> items = itemService.findItems();

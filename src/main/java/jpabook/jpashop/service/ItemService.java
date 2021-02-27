@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 
@@ -17,17 +18,13 @@ public class ItemService {
     public void saveItem(Item item) {
         itemRepository.save(item);
     }
-    @Transactional
-    public void updateItem(Long id, String name, int price) {
-        Item item = itemRepository.findOne(id);
-        item.setName(name);
-        item.setPrice(price);
-    }
 
     @Transactional
-    void update(Item itemParam) { //itemParam: 파리미터로 넘어온 준영속 상태의 엔티티
-        Item findItem = em.find(Item.class, itemParam.getId()); //같은 엔티티를 조회한다.
-                findItem.setPrice(itemParam.getPrice()); //데이터를 수정한다.
+    public void updateItem(Long itemId, Book param) {
+        Item finditem = itemRepository.findOne(itemId);
+        finditem.setName(param.getName());
+        finditem.setStockQuantity(param.getStockQuantity());
+        finditem.setPrice(param.getPrice());
     }
 
     public List<Item> findItems() {

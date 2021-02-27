@@ -20,8 +20,7 @@ public class OrderController {
     private final ItemService itemService;
 
     @GetMapping(value = "/orders")
-    public String orderList(@ModelAttribute("orderSearch") OrderSearch
-                                    orderSearch, Model model) {
+    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
         List<Order> orders = orderService.findOrders(orderSearch);
         model.addAttribute("orders", orders);
         return "order/orderList";
@@ -38,7 +37,8 @@ public class OrderController {
 
     @PostMapping(value = "/order")
     public String order(@RequestParam("memberId") Long memberId,
-                        @RequestParam("itemId") Long itemId, @RequestParam("count") int count) {
+                        @RequestParam("itemId") Long itemId,
+                        @RequestParam("count") int count) {
         orderService.order(memberId, itemId, count);
         return "redirect:/orders";
     }
