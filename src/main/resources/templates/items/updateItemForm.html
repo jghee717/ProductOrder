@@ -3,6 +3,26 @@
 <head th:replace="fragments/header :: header" />
 <body>
 <div class="container">
+    <div class="page-title-area">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <div class="breadcrumbs-area clearfix">
+                    <br>
+                    <h4 class="page-title pull-left">상품 기능</h4>
+                    <ul class="breadcrumbs pull-left">
+                        <br>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 clearfix">
+            </div>
+        </div>
+    </div>
+    <div class="d-sm-flex justify-content-between align-items-center">
+        <h4 class="header-title mb-0">상품 수정</h4><br><br><br>
+
+    </div>
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <form th:object="${form}" method="post">
         <!-- id -->
@@ -32,7 +52,7 @@
             <input type="text" th:field="*{isbn}" class="form-control"
                    placeholder="ISBN을 입력하세요" />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">수정</button>
     </form>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
