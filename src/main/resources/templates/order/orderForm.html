@@ -2,28 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header" />
 <body>
-<div class="container">
-    <div class="page-title-area">
-        <div class="row align-items-center">
-            <div class="col-sm-6">
-                <div class="breadcrumbs-area clearfix">
-                    <br>
-                    <h4 class="page-title pull-left">주문 기능</h4>
-                    <ul class="breadcrumbs pull-left">
+<div class="page-container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div class="main-content">
+
+        <div class="page-title-area">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="breadcrumbs-area clearfix">
                         <br>
-                        <br>
-                    </ul>
+                        <h4 class="page-title pull-left">회원 기능</h4>
+                        <ul class="breadcrumbs pull-left">
+                            <br>
+                            <br>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 clearfix">
                 </div>
             </div>
-            <div class="col-sm-6 clearfix">
-            </div>
         </div>
-    </div>
+        <div class="main-content-inner">
+            <!-- market value area start -->
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
     <div class="d-sm-flex justify-content-between align-items-center">
         <h4 class="header-title mb-0">상품 주문</h4><br><br><br>
 
     </div>
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <form role="form" action="/order" method="post">
         <div class="form-group">
             <label for="member">주문회원</label>
@@ -53,5 +62,11 @@
     <br/>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

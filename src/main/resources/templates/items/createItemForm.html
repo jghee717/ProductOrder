@@ -1,59 +1,75 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header" />
+<head th:replace="fragments/header :: header"/>
 <body>
-<div class="container">
-    <div class="page-title-area">
-        <div class="row align-items-center">
-            <div class="col-sm-6">
-                <div class="breadcrumbs-area clearfix">
-                    <br>
-                    <h4 class="page-title pull-left">상품 기능</h4>
-                    <ul class="breadcrumbs pull-left">
+<div class="page-container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div class="main-content">
+
+        <div class="page-title-area">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="breadcrumbs-area clearfix">
                         <br>
-                        <br>
-                    </ul>
+                        <h4 class="page-title pull-left">상품 기능</h4>
+                        <ul class="breadcrumbs pull-left">
+                            <br>
+                            <br>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 clearfix">
                 </div>
             </div>
-            <div class="col-sm-6 clearfix">
+        </div>
+        <div class="main-content-inner">
+            <!-- market value area start -->
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-sm-flex justify-content-between align-items-center">
+                                <h4 class="header-title mb-0">상품 등록</h4><br><br><br>
+
+                            </div>
+
+                            <form th:action="@{/items/new}" th:object="${form}" method="post">
+                                <div class="form-group">
+                                    <label th:for="name">상품명</label>
+                                    <input type="text" th:field="*{name}" class="form-control"
+                                           placeholder="이름을 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="price">가격</label>
+                                    <input type="number" th:field="*{price}" class="form-control"
+                                           placeholder="가격을 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="stockQuantity">수량</label>
+                                    <input type="number" th:field="*{stockQuantity}" class="formcontrol"
+                                           placeholder="수량을 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="author">저자</label>
+                                    <input type="text" th:field="*{author}" class="form-control"
+                                           placeholder="저자를 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label th:for="isbn">ISBN(국제 표준 도서 번호)</label>
+                                    <input type="text" th:field="*{isbn}" class="form-control"
+                                           placeholder="ISBN을 입력하세요">
+                                </div>
+                                <button type="submit" class="btn btn-primary">등록</button>
+                            </form>
+                            <br/>
+                            <div th:replace="fragments/footer :: footer"/>
+                        </div> <!-- /container -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="d-sm-flex justify-content-between align-items-center">
-        <h4 class="header-title mb-0">상품 등록</h4><br><br><br>
-
-    </div>
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-    <form th:action="@{/items/new}" th:object="${form}" method="post">
-        <div class="form-group">
-            <label th:for="name">상품명</label>
-            <input type="text" th:field="*{name}" class="form-control"
-                   placeholder="이름을 입력하세요">
-        </div>
-        <div class="form-group">
-            <label th:for="price">가격</label>
-            <input type="number" th:field="*{price}" class="form-control"
-                   placeholder="가격을 입력하세요">
-        </div>
-        <div class="form-group">
-            <label th:for="stockQuantity">수량</label>
-            <input type="number" th:field="*{stockQuantity}" class="formcontrol"
-                   placeholder="수량을 입력하세요">
-        </div>
-        <div class="form-group">
-            <label th:for="author">저자</label>
-            <input type="text" th:field="*{author}" class="form-control"
-                   placeholder="저자를 입력하세요">
-        </div>
-        <div class="form-group">
-            <label th:for="isbn">ISBN(국제 표준 도서 번호)</label>
-            <input type="text" th:field="*{isbn}" class="form-control"
-                   placeholder="ISBN을 입력하세요">
-        </div>
-        <button type="submit" class="btn btn-primary">등록</button>
-    </form>
-    <br/>
-    <div th:replace="fragments/footer :: footer" />
-</div> <!-- /container -->
+</div>
 </body>
 </html>
